@@ -1,6 +1,5 @@
 #day8
 #check a number if its prime
-
 #prime number can only divided by itself and 1
 def prime_check(val):
     isPrime = True
