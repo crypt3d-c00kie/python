@@ -21,7 +21,7 @@ d888888888b 888 d88888888b
 print("Welcome to the Island")
 print("You have been assigned a task to find the ancient treasure.")
 choice1 = input("You are at the crossroads, where do you wanna turn? left or right? :: ").lower()
-#the above line will convert the input string into the lower case
+#the above line will convert the input string into the lower case 
 
 if choice1 == "left":
   print('You came across a lake that is dark blue, it looks deep but sometimes you never know until you try :: ')
