@@ -17,4 +17,5 @@ def main():
 
     print(f"Running sum of this 1D array :: {runningSum(givenList)}")
 
+    
 main()
