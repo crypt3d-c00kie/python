@@ -1,2 +1,2 @@
 # python
-documenting my python code
+documenting my python journey
