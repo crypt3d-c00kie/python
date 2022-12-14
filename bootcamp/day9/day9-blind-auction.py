@@ -1,4 +1,4 @@
-
+# blind auction 
 import os
 
 def findMaxBid(bidDict):
