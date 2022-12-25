@@ -33,7 +33,6 @@ def compare(userScore, computerScore):
     else:
         return "-- Lose --"
 
-
 def main():
     user = []
     computer = []
