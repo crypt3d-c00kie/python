@@ -6,7 +6,7 @@ def main():
     kIter = [1,2,3,5]
 
     # for k in kIter:
-    #     given[:] = given[k:] + given[:k]
+    #     given[:] = given[k:] + given[:k] 
     #     print(given)
 
     
