@@ -1,0 +1,68 @@
+# day 15
+# virtual coffee machine
+
+import cafeMenu as cm
+profit = 0
+
+def isResourceSufficient(order_ingredients):
+    """Returns True when order can be made, False if ingredients insufficient"""
+    for item in order_ingredients:
+        if order_ingredients[item] >= cm.resources[item]:
+            print("Sorry there is not enough water!")
+            return False
+    return True
+
+
+def processCoins():
+    """Returns the total calculated from the coins inserted."""
+    print("Please insert the coins.")
+    total = int(input("how many quarters? :: ")) * 0.25
+    total += int(input("how many dimes? :: ")) * 0.1
+    total += int(input("how many nickles? :: ")) * 0.05
+    total += int(input("how many pennies? :: ")) * 0.01
+    return total
+
+def isTransactionSuccessful(money_recieved, drink_cost):
+    """Returns True when the payment is accepted. False if money is insufficient"""
+    if money_recieved >= drink_cost:
+        change = round(money_recieved - drink_cost, 2)
+        print(f"Here is ${change} in change.")
+        global profit
+        profit += drink_cost
+        return True
+    else:
+        print("Sorry thats not enough Money. Money has been refunded.")
+        return False
+
+def makeCoffee(drink_name, order_ingredients):
+    """Deduct the required ingredients from the resources."""
+    for item in order_ingredients:
+        cm.resources[item] -= order_ingredients[item]
+    print(f"Here is your {drink_name}. ")
+
+def main():
+    isOn = True
+    # profit = 0
+
+    while isOn:
+        choice = input("What would you like? (espresso, latte, cappucino) ")
+        if choice == "off":
+            isOn = False
+        elif choice == "report":
+            print(f''' 
+    Water : {cm.resources['water']}ml
+    Milk : {cm.resources['milk']}ml
+    Coffee : {cm.resources['coffee']}g
+    Money : ${profit}         
+            ''')
+        else:
+            drink = cm.MENU[choice]
+            if isResourceSufficient(drink["ingredients"]):
+                payment = processCoins()
+                if isTransactionSuccessful(payment, drink["cost"]):
+                    makeCoffee(choice, drink["ingredients"])
+
+
+
+if __name__ == '__main__':
+    main()
