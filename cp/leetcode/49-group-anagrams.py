@@ -1,10 +1,11 @@
-def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-    final = defaultdict(list)
-    
-    for string in strs:
-        count = [0] * 26
-        for c in string:
-            count[ord(c) - ord('a')] += 1
+
+
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         
-        final[tuple(count)].append(string)
-    return final.values()
+
+        groups = collections.defaultdict(list)
+        for item in strs:
+            groups[tuple(sorted(item))].append(item)
+        return groups.values()
+        
