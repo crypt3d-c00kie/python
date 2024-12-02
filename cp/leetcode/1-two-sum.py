@@ -7,4 +7,4 @@ class Solution:
             diff = target - n
             if diff in seen:
                 return [nums.index(diff), i]
-            seen.add(n)
+            seen.add(n) 
